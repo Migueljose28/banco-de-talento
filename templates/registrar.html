@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/registrar.css">
+    <title>Registrar</title>
+    <link rel="shortcut icon" type="imagex/png" href="static/img/logo.png">
+</head>
+<body>
+    <div class="main-login">
+        <div class="left-login">
+            <img src="static/img/logo.png" class="left-login-img" alt="logo">
+        </div>
+
+        <div class="right-login">
+            <div class="card-login">
+                <h1>Cadastrar-se</h1>
+                <form action="" method="post">
+                    <div class="form-container">
+                        <div class="textfield">
+                          
+                            <label for="usuario">Usuário</label>
+                            <input type="text" name="nomeForm" placeholder="Usuário" id="">
+                        </div>
+                        <div class="textfield">
+                            <label for="email">Email</label>
+                            <input type="email" name="emailForm" placeholder="Email" id="">
+                        </div>
+                        <div class="textfield">
+                            <label for="telefone">Telefone</label>
+                            <input type="text" name="telefoneForm" placeholder="Telefone" id="">
+                        </div>
+                        <div class="textfield">
+                            <label for="cpf">CPF/CNPJ</label>
+                            <input type="text" name="cpfForm" placeholder="CPF OU CNPJ" id="">
+                        </div>
+                        <div class="textfield">
+                            <label for="senha">Senha</label>
+                            <input type="password" name="senhaForm" placeholder="Senha" id="">
+                        </div>
+                        <div class="textfield">
+                            <label for="senha">Confirme a senha</label>
+                            <input type="password" name="confirmarSenhaForm" placeholder="Senha">
+                        </div>
+                    </div>
+                    <input  class="btn-login" type="submit" value="Registrar">
+                    <a class="" href="/login">Login</a>
+                </form>
+            </div>
+        </div>
+        </div>
+</body>
+<script>
+   window.onload = function() {
+        var mensagem = "{{mensagem}}";
+        if (mensagem != "") {
+            alert(mensagem);
+        }
+};
+
+    /*alert({{mensagem}});*/
+</script>
+</html><!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar</title>
+</head>
+<body>
+    <h1>Registrar</h1>
+    <form action="" method="post">
+        <p>{{mensagem}}</p>
+        Usuário: <input type="text" name="nomeForm" id=""><br>
+        Email: <input type="email" name="emailForm" id=""><br>
+        telefone: <input type="text" name="telefoneForm" id=""><br>
+        CPF/CNPJ: <input type="text" name="cpfForm" id=""><br>
+        Senha: <input type="password" name="senhaForm" id=""><br>
+        confirmar senha: <input type="password" name="confirmarSenhaForm" id=""><br>
+       
+
+    </form>
+</body>
+</html>-->

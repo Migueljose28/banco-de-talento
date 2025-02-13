@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banco de Taleto - C´Evolu</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+    <link rel="stylesheet" href="static/css/index.css">
+    <link rel="shortcut icon" type="imagex/png" href="static/img/logo.png">
+    <style>
+        .pdf-container {
+            width: 100%;
+            height: 600px; /* Tamanho da área visível */
+            overflow: auto; /* Barra de rolagem quando necessário */
+            border: 2px solid #ccc; /* Optional: borda para o contêiner */
+        }
+
+        /* Estilos para o canvas */
+        #pdf-canvas {
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+        <h1>Olá {{current_user.nome}}! Você está logado. </h1>
+        <a href="/logout">Logout</a>
+ 
+
+         <!-- Usando <embed> para exibir o PDF -->
+         <!-- Canvas onde o PDF será exibido -->
+
+<div class="pdf-container">
+    <canvas id="pdf-canvas" width="100%" height="400px"></canvas>
+</div>
+
+<div class="menu_botoes">
+<button id="decrementar">&lt;</button>
+<h1><span id="valor">0</span></h1>
+<button id="incrementar">&gt;</button>
+</div>
+
+    <script>
+           
+            const url = 'static/pdf/curriculos.pdf';  // Caminho para o PDF
+            // Variável inicial
+            let valor = 0;
+
+            // Funções para alterar o valor
+            function atualizarValor() {
+                document.getElementById('valor').textContent = valor;
+                 // Carregar o PDF com pdf.js
+            pdfjsLib.getDocument(url).promise.then(function(pdf) {
+            
+
+
+            pdf.getPage(valor).then(function(page) {
+                var canvas = document.getElementById('pdf-canvas');
+                var context = canvas.getContext('2d');
+
+                // Definir a escala para a exibição
+                var scale = 1.5; 
+                var viewport = page.getViewport({ scale: scale });
+
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+
+                // Renderizar a página do PDF
+                page.render({
+                    canvasContext: context,
+                    viewport: viewport
+                });
+            });
+        });
+            }
+
+            // Função para diminuir
+            document.getElementById('decrementar').onclick = function() {
+                valor -= 1;
+                atualizarValor();
+            };
+
+            // Função para aumentar
+            document.getElementById('incrementar').onclick = function() {
+                valor += 1;
+                atualizarValor();
+            };
+
+           
+
+        // Bloquear o clique direito no canvas
+        document.getElementById('pdf-canvas').addEventListener('contextmenu', function(event) {
+            event.preventDefault();  // Impede a ação padrão (abrir o menu de contexto)
+            return false;
+        });
+    </script>
+   
+
+</body>
+</html>
