@@ -37,6 +37,7 @@
 <div class="menu_botoes">
 <button id="decrementar">&lt;</button>
 <input id="valor" type="number">
+<button id="commit">buscar</button>
 <p style="color:white"  id="displayValor">0</p>
 
 <button id="incrementar">&gt;</button>
@@ -96,6 +97,13 @@
                 valor += 1;
                 atualizarValor();
             };
+
+            document.getElementById('commit').onclick = function(){
+               
+                atualizarValor();
+            }
+           
+            
 
           
 
