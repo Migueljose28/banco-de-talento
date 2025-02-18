@@ -5,6 +5,7 @@
 body {
     margin: 0;
     font-family: "Noto Sans", sans-serif;
+    background-color: #201b2c;
 }
 
 .rigth-login {
@@ -18,7 +19,7 @@ body {
 .main-login {
     width: 100vw;
     height: 100vh;
-    background-color: #201b2c;
+   
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -116,4 +117,81 @@ body {
 a {
     text-decoration: none;
     color: #201b2c
+}
+
+
+
+/* Para telas grandes: desktops */
+@media (min-width: 1200px) {
+    
+}
+
+/* Para telas médias: laptops ou tablets grandes */
+@media (max-width: 1199px) and (min-width: 768px) {
+    .left-login, .left-login > img {
+      display: none;
+    }
+
+    .main-login{
+        display: flex;
+       
+        flex-direction: column;
+    }
+
+form{
+    width: 80%;
+    font-size: large;
+   
+}
+}
+
+/* Para telas pequenas: tablets e celulares em modo paisagem */
+@media (max-width: 767px) {
+    .left-login, .left-login > img {
+        display: none;
+      }
+      
+      .main-login{
+          display: flex;
+          flex-direction: column;
+      }
+  
+      .form-container{
+        
+        display: flex;
+        flex-direction: column;
+      }
+      .right-login{
+        width: 100%;
+        display: flex;
+        align-items: center;
+
+      }
+      .card-login{width: 100%;}
+
+      .form-container > div > div{
+       width: 100%;
+       
+      }
+
+      .textfield{
+        font-size: large;
+      }
+
+      .textfield > input{
+        font-size: large;
+        width: 70vw;
+
+      }
+      .textfield > label{
+        font-size: large;
+    
+      }
+
+
+  form{
+      width: 80%;
+      font-size: large;
+     
+  }
 }

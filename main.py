@@ -1,14 +1,17 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
-
+import pymysql
 from db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 import re
 
+
+
 app = Flask(__name__)
 
 app.secret_key = 'admin'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
+app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://sql12762702:ddklEt6NQz@sql12.freesqldatabase.com:3306/sql12762702"
+app.config['AQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 
 lm = LoginManager(app)
