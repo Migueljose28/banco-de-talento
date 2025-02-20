@@ -48,7 +48,8 @@ a :hover{
 .pdf-container {
     width: 100%;
     overflow: auto; /* Barra de rolagem quando necessário */
-    border: 1px solid #ccc; /* Optional: borda para o contêiner */
+    border: 1px solid #91b72e; /* Optional: borda para o contêiner */
+    box-shadow: 0px 1px 30px black;
     margin: auto;
     
 }
