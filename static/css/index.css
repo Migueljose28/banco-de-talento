@@ -90,21 +90,46 @@ button{
     width: 80%;
     margin: 0 auto;
 }
+@media (min-width: 768) and (max-width: 2000px) {
+    #pdf-canvas {
+        width: 80%;
+       
+    }
 
+
+}
 
 /* Para telas pequenas: tablets e celulares em modo paisagem */
 @media (max-width: 767px) {
     nav{
-        font-size:12px
+        display: flex;
+        font-size:12px;
+        justify-content: space-around;
+        width: 100%;
+      
+       
     }
+
+
+  nav > section{
+    display: flex;
+    flex-direction: column;
+    flex-direction: end;
+  }
+
+
+nav > section > button{
+   
+    font-size: 10px;
+    width: 50%;
+    
+}
 
 h2{
     display:none;
 }
 
-#logout{
-    order: 1;
-}
+
 
 
 
