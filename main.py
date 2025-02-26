@@ -1,17 +1,22 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_login import LoginManager, login_user, login_required, logout_user, current_user
-import pymysql
 from db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 import re
+import urllib.parse
 
-
-
+# Configuração do Flask
 app = Flask(__name__)
-
 app.secret_key = 'admin'
-app.config['SQLALCHEMY_DATABASE_URI'] = "mysql+pymysql://sql12762702:ddklEt6NQz@sql12.freesqldatabase.com:3306/sql12762702"
-app.config['AQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+
+
+senha = "@Consulte@20#25@"
+senha_escapada = urllib.parse.quote(senha)
+# Configuração do banco de dados SQLite
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://u630267573_user:{senha_escapada}@193.203.175.198:65002/u630267573_database'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
 db.init_app(app)
 
 lm = LoginManager(app)
@@ -122,4 +127,3 @@ def logout():
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
-        app.run(debug=True)

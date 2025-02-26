@@ -4,7 +4,6 @@ body{
     padding: 0;
 }
 
-
 nav{
     display: flex;
     flex-direction: row;
@@ -14,7 +13,6 @@ nav{
     padding: 20px 0px ;
     justify-content: space-around;
 }
-
 
 input{
     border: none;
@@ -44,14 +42,12 @@ a :hover{
     color:  #91b72e;
 }
 
-
 .pdf-container {
     width: 100%;
     overflow: auto; /* Barra de rolagem quando necessário */
     border: 1px solid #91b72e; /* Optional: borda para o contêiner */
     box-shadow: 0px 1px 30px black;
     margin: auto;
-    
 }
 
 
@@ -64,8 +60,10 @@ width: 100%;
 
 .menu_botoes{
     display: flex;
+    position: fixed;
     justify-content: space-between;
     margin: 10px;
+    z-index: 1;
 }
 
 button{
@@ -98,6 +96,8 @@ button{
 }
 
 
+
+
 @media (min-width: 768) and (max-width: 2000px) {
     #pdf-canvas {
         width: 80%;  
@@ -111,10 +111,7 @@ button{
         font-size:12px;
         justify-content: space-around;
         width: 100%;
-      
-       
     }
-
 
   nav > section{
     display: flex;
@@ -122,9 +119,7 @@ button{
     flex-direction: end;
   }
 
-
 nav > section > button{
-   
     font-size: 10px;
     width: 50%;
     
