@@ -4,18 +4,26 @@ from db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 import re
 import urllib.parse
+import pymysql
+pymysql.install_as_MySQLdb()
 
 # Configuração do Flask
 app = Flask(__name__)
+
 app.secret_key = 'admin'
 
 
 
 senha = "@Consulte@20#25@"
-senha_escapada = urllib.parse.quote(senha)
+senha_escapada = urllib.parse.quote_plus(senha)
 # Configuração do banco de dados SQLite
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://u630267573_user:{senha_escapada}@193.203.175.198:65002/u630267573_database'
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+
+# Configuração do banco de dados MySQL
+app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+pymysql://u630267573_user:{senha_escapada}@cevolu.com.br/u630267573_database'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+#f'mysql+pymysql://u630267573_user:{senha_escapada}@193.203.175.198:65002/u630267573_database'
+
 
 db.init_app(app)
 
@@ -127,3 +135,4 @@ def logout():
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()
+        
